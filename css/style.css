@@ -35,6 +35,12 @@ body._active {
 
 .example {
   position: relative;
+  max-width: 870px;
+  width: 100%;
+  margin-right: 30px;
+}
+
+.example__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,106 +49,97 @@ body._active {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  max-width: 870px;
-  width: 100%;
-  margin-right: 30px;
 }
 
-.sidebar._active {
-  right: 0;
-  bottom: 0;
-  overflow: auto;
+.example__item {
+  margin-bottom: 30px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.icon-menu {
+.example__item--hidden {
   display: none;
 }
 
-.icon-menu._active {
+.example__item:hover {
+  -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.example__item:focus {
+  -webkit-box-shadow: 0 0 0 3px #ccc;
+          box-shadow: 0 0 0 3px #ccc;
+  border-radius: 2px;
+}
+
+.example__item:active {
+  -webkit-box-shadow: 0 0 10px 0 #ccc;
+          box-shadow: 0 0 10px 0 #ccc;
+}
+
+.example .icon-menu {
+  display: none;
+}
+
+.example .icon-menu._active {
   background-color: #fff;
 }
 
-.icon-menu._active::before {
+.example .icon-menu._active::before {
   top: 48%;
   -webkit-transform: rotate(-45deg) translate(0, -50%);
       -ms-transform: rotate(-45deg) translate(0, -50%);
           transform: rotate(-45deg) translate(0, -50%);
 }
 
-.icon-menu._active::after {
+.example .icon-menu._active::after {
   bottom: 50%;
   -webkit-transform: rotate(45deg) translate(0, 50%);
       -ms-transform: rotate(45deg) translate(0, 50%);
           transform: rotate(45deg) translate(0, 50%);
 }
 
-.icon-menu._active span {
+.example .icon-menu._active span {
   top: 50%;
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
 }
 
-.card-link {
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-  margin-bottom: 30px;
-}
-
-.card-link:hover {
-  -webkit-transform: translateY(-5px);
-      -ms-transform: translateY(-5px);
-          transform: translateY(-5px);
-}
-
-.card-link:focus {
-  -webkit-box-shadow: 0 0 0 3px #ccc;
-          box-shadow: 0 0 0 3px #ccc;
-  border-radius: 2px;
-}
-
-.card-link:active {
-  -webkit-box-shadow: 0 0 10px 0 #ccc;
-          box-shadow: 0 0 10px 0 #ccc;
-}
-
-.card-link--hidden {
-  display: none;
-}
-
-.card {
+.example .card {
+  display: block;
   position: relative;
   max-width: 270px;
   font-size: 14px;
   background-color: #fff;
+  height: 334px;
 }
 
-.card__img {
+.example .card__img {
   display: block;
 }
 
-.card__box {
+.example .card .box {
   padding: 15px 15px 20px 15px;
 }
 
-.card__title {
+.example .card .box__title {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.card__text {
+.example .card .box__text {
   margin-bottom: 10px;
 }
 
-.card__metro {
+.example .card .box__bus {
   margin-bottom: 10px;
 }
 
-.card__metro::before {
+.example .card .box__bus::before {
   content: "";
   display: inline-block;
   background-image: url(../img/svgicons/bus.svg);
@@ -154,13 +151,14 @@ body._active {
   margin-right: 8px;
 }
 
-.card__addres {
+.example .card .box__addres {
   color: #777;
 }
 
-.info {
+.example .card .info {
   position: absolute;
   top: 10px;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -170,23 +168,23 @@ body._active {
   width: 100%;
 }
 
-.info__text {
+.example .card .info__text {
   padding: 3px 10px;
   background-color: #a3adff;
   margin-right: 10px;
   border-radius: 4px;
 }
 
-.info__text--ins {
+.example .card .info__text--ins {
   background-color: #50c878;
   color: #fff;
 }
 
-.info__text:last-child {
+.example .card .info__text:last-child {
   margin-right: 0;
 }
 
-.show-more {
+.example .show-more {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -208,11 +206,11 @@ body._active {
   transition: background-color 0.3s;
 }
 
-.show-more:hover {
+.example .show-more:hover {
   background-color: #dbdbdb;
 }
 
-.show-more__img {
+.example .show-more__img {
   margin-right: 10px;
 }
 
@@ -220,51 +218,6 @@ body._active {
   max-width: 270px;
   min-width: 250px;
   width: 100%;
-}
-
-.sidebar-title {
-  position: relative;
-  font-size: 18px;
-  font-weight: 700;
-  cursor: pointer;
-  padding-top: 2px;
-  margin-bottom: 20px;
-}
-
-.sidebar-title::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 24px;
-  height: 24px;
-  background-image: url("../img/svgicons/arrow.svg");
-  background-position: top center;
-  background-size: initial;
-  background-repeat: no-repeat;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  -o-transition: transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-}
-
-.sidebar-title:focus {
-  -webkit-box-shadow: 0 0 0 2px #ccc;
-          box-shadow: 0 0 0 2px #ccc;
-  border-radius: 2px;
-}
-
-.sidebar-title:active {
-  -webkit-box-shadow: 0 0 0 2px #ccc;
-          box-shadow: 0 0 0 2px #ccc;
-  border-radius: 2px;
-}
-
-.sidebar-title--flip::before {
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg);
 }
 
 .sidebar__btn {
@@ -336,40 +289,97 @@ body._active {
   margin-right: 6px;
 }
 
+.sidebar._active {
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
 .widget {
   margin-bottom: 30px;
 }
 
-.metro {
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
+.widget-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  padding-top: 2px;
+  margin-bottom: 20px;
 }
 
-.metro:active {
+.widget-title::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url("../img/svgicons/arrow.svg");
+  background-position: top center;
+  background-size: initial;
+  background-repeat: no-repeat;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.widget-title:focus {
   -webkit-box-shadow: 0 0 0 2px #ccc;
           box-shadow: 0 0 0 2px #ccc;
   border-radius: 2px;
 }
 
-.metro.hidden {
+.widget-title:active {
+  -webkit-box-shadow: 0 0 0 2px #ccc;
+          box-shadow: 0 0 0 2px #ccc;
+  border-radius: 2px;
+}
+
+.widget-title--flip::after {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.bus {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.bus:active {
+  -webkit-box-shadow: 0 0 0 2px #ccc;
+          box-shadow: 0 0 0 2px #ccc;
+  border-radius: 2px;
+}
+
+.bus.hidden {
   display: none;
 }
 
-.metro__row-one,
-.metro__row-two {
+.bus__row-one,
+.bus__row-two {
   text-align: center;
   border: 1px solid #D6D6D6;
 }
 
-.metro__row-one {
+.bus__row-one {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border-radius: 4px 4px 0 0;
 }
 
-.metro__row-two {
+.bus__row-two {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -377,7 +387,7 @@ body._active {
   border-radius: 0 0 4px 4px;
 }
 
-.metro__btn {
+.bus__btn {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -393,11 +403,11 @@ body._active {
   cursor: pointer;
 }
 
-.metro__btn:hover {
+.bus__btn:hover {
   background-color: rgba(80, 200, 120, 0.5);
 }
 
-.metro__check {
+.bus__check {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -407,11 +417,11 @@ body._active {
           appearance: none;
 }
 
-.metro__check:checked + .metro__btn {
+.bus__check:checked + .bus__btn {
   background-color: #50c878;
 }
 
-.metro__check:checked + .metro__btn:hover {
+.bus__check:checked + .bus__btn:hover {
   background-color: rgba(80, 200, 120, 0.5);
 }
 
@@ -645,24 +655,24 @@ body._active {
 
 @media (max-width: 1200px) {
   .wrapper {
-    max-width: 860px;
-  }
-
-  .example {
-    margin-right: 10px;
-  }
-
-  .card-link:nth-child(odd) {
-    margin-right: 10px;
+    max-width: 890px;
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .wrapper {
-    max-width: 610px;
+    max-width: 620px;
   }
 
-  .icon-menu {
+  .example {
+    margin-right: 0;
+  }
+
+  .example__item:nth-child(even) {
+    margin-right: 5px;
+  }
+
+  .example .icon-menu {
     position: absolute;
     top: -45px;
     right: 0;
@@ -673,9 +683,9 @@ body._active {
     cursor: pointer;
   }
 
-  .icon-menu span,
-  .icon-menu::before,
-  .icon-menu::after {
+  .example .icon-menu span,
+  .example .icon-menu::before,
+  .example .icon-menu::after {
     position: absolute;
     height: 12%;
     width: 100%;
@@ -685,20 +695,20 @@ body._active {
     background-color: #000;
   }
 
-  .icon-menu::before,
-  .icon-menu::after {
+  .example .icon-menu::before,
+  .example .icon-menu::after {
     content: "";
   }
 
-  .icon-menu::before {
+  .example .icon-menu::before {
     top: 5px;
   }
 
-  .icon-menu::after {
+  .example .icon-menu::after {
     bottom: 5px;
   }
 
-  .icon-menu span {
+  .example .icon-menu span {
     top: 50%;
     -webkit-transform: scale(1) translate(0, -50%);
         -ms-transform: scale(1) translate(0, -50%);
@@ -719,40 +729,31 @@ body._active {
   }
 }
 
-@media (max-width: 590px) {
-  .example {
+@media (max-width: 580px) {
+  .example__list {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     margin-right: 0;
   }
 
-  .card-link:nth-child(even) {
-    margin-right: 3px;
+  .example__item:nth-child(even) {
+    margin-right: 0;
   }
 }
 
 @media (max-width: 310px) {
-  .card-link {
+  .example .card {
     width: 100%;
     max-width: 100%;
   }
 
-  .card {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .card__img {
+  .example .card__img {
     width: 100%;
   }
 
   .sidebar {
     max-width: 100%;
-  }
-
-  .sidebar-title {
-    font-size: 16px;
   }
 
   .sidebar__btn {
@@ -763,7 +764,11 @@ body._active {
     padding: 15px 40px 15px 40px;
   }
 
-  .metro__btn {
+  .widget-title {
+    font-size: 16px;
+  }
+
+  .bus__btn {
     font-size: 12px;
   }
 
